@@ -1,17 +1,14 @@
 import React from "react";
+import { usePokemon } from "../context/PokemonContext";
 import SelectPokemon from "./SelectPokemon";
 
-const Dashboard = ({ selectPokemon, removePokemon }) => {
+const Dashboard = () => {
+  const { selectPokemon } = usePokemon();
+
   return (
     <div>
       {selectPokemon.map((pokemon) => {
-        return (
-          <SelectPokemon
-            key={`board-${pokemon.id}`}
-            pokemon={pokemon}
-            removePokemon={removePokemon}
-          />
-        );
+        return <SelectPokemon key={`board-${pokemon.id}`} pokemon={pokemon} />;
       })}
     </div>
   );

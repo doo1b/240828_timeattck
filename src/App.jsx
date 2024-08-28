@@ -1,10 +1,13 @@
 import "./App.css";
+import { PokemonProvider } from "./context/PokemonContext";
 import Router from "./pages/Router";
 
 function App() {
   return (
     <>
-      <Router />
+      <PokemonProvider>
+        <Router />
+      </PokemonProvider>
     </>
   );
 }

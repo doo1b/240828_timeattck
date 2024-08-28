@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { usePokemon } from "../context/PokemonContext";
 
-const SelectPokemon = ({ pokemon, removePokemon }) => {
+const SelectPokemon = ({ pokemon }) => {
+  const { removePokemon } = usePokemon();
   const handleRemove = () => {
     removePokemon(pokemon.id);
   };

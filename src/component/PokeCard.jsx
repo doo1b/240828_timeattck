@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { usePokemon } from "../context/PokemonContext";
 
-const PokeCard = ({ pokemon, addPokemon }) => {
+const PokeCard = ({ pokemon }) => {
+  const navigate = useNavigate();
+  const { addPokemon } = usePokemon();
   const handleAdd = () => {
     addPokemon(pokemon);
   };
 
-  const navigate = useNavigate();
   return (
     <>
       <div onClick={() => navigate(`/detail?id=${pokemon.id}`)}>
