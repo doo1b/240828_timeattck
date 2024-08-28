@@ -1,13 +1,14 @@
 import "./App.css";
-import { PokemonProvider } from "./context/PokemonContext";
 import Router from "./pages/Router";
+import store from "./redux/configStore";
+import { Provider } from "react-redux";
 
 function App() {
   return (
     <>
-      <PokemonProvider>
+      <Provider store={store}>
         <Router />
-      </PokemonProvider>
+      </Provider>
     </>
   );
 }

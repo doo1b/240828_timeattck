@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { usePokemon } from "../context/PokemonContext";
+import { useDispatch } from "react-redux";
+import { addPokemon } from "../redux/slices/pokemonSlice";
 
 const PokeCard = ({ pokemon }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { addPokemon } = usePokemon();
+
   const handleAdd = () => {
-    addPokemon(pokemon);
+    dispatch(addPokemon(pokemon));
   };
 
   return (

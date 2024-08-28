@@ -1,9 +1,9 @@
 import React from "react";
-import { usePokemon } from "../context/PokemonContext";
 import SelectPokemon from "./SelectPokemon";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const { selectPokemon } = usePokemon();
+  const selectPokemon = useSelector((state) => state.pokemon.selectPokemon);
 
   return (
     <div>

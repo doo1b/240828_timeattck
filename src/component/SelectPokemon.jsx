@@ -1,13 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { usePokemon } from "../context/PokemonContext";
+import { useDispatch } from "react-redux";
+import { removePokemon } from "../redux/slices/pokemonSlice";
 
 const SelectPokemon = ({ pokemon }) => {
-  const { removePokemon } = usePokemon();
-  const handleRemove = () => {
-    removePokemon(pokemon.id);
-  };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(removePokemon(pokemon.id));
+  };
 
   return (
     <>
